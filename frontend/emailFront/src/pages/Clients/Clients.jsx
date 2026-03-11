@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Clients.css";
 import { Link } from "react-router-dom";
+import API_URL from "../../api/api";
 
 const Clients = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newClient, setNewClient] = useState({
@@ -31,7 +31,7 @@ const Clients = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/clients", {
+        const response = await fetch(`${API_URL}/api/clients`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const Clients = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/clients", {
+      const response = await fetch(`${API_URL}/api/clients`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

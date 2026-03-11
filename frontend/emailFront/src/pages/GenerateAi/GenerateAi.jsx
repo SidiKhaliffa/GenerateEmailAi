@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './GenerateAi.css';
+import API_URL from '../../api/api';
 
 const GenerateAi = () => {
   const [prompt, setPrompt] = useState('');
@@ -21,7 +22,7 @@ const GenerateAi = () => {
     }
     setIsGenerating(true);
     try{
-      const response = await fetch('http://localhost:3000/api/ai/generate-email', {
+      const response = await fetch(`${API_URL}/api/ai/generate-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

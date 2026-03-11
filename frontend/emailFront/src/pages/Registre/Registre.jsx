@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./registre.css";
 import { Link } from "react-router-dom";
+import API_URL from "../../api/api";
 
 const Registre = () => {
   const [fullName, setFullName] = useState("");
@@ -22,7 +23,7 @@ const Registre = () => {
     }
     try {
       console.log("Sign up attempt:", { fullName, email, password });
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
